@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Solo Generator</title>
+</head>
+<body>
+    <h1>Guitar Solo Generator</h1>
+    <form action="/generate" method="post">
+        <label for="root_note">Root Note:</label>
+        <input type="text" id="root_note" name="root_note" required><br><br>
+        <label for="path_length">Path Length:</label>
+        <input type="number" id="path_length" name="path_length" required><br><br>
+        <input type="submit" value="Generate">
+    </form>
+    <br>
+    {% if tabs %}
+        <pre>{{ tabs }}</pre>
+    {% endif %}
+</body>
+</html>
