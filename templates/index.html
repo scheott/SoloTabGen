@@ -4,17 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guitar Solo Generator</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #16213e;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        label, select, input {
+            display: block;
+            margin: 10px auto;
+            font-size: 1.2em;
+        }
+        input[type="submit"] {
+            background-color: #0f3460;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        input[type="submit"]:hover {
+            background-color: #0f3460;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #e94560;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: inline-block;
+            text-align: left;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
+    <img src="https://www.link-to-your-guitar-image.com/guitar.jpg" alt="Guitar Image">
     <h1>Guitar Solo Generator</h1>
     <form action="/generate" method="post">
-        <label for="root_note">Root Note:</label>
-        <input type="text" id="root_note" name="root_note" required><br><br>
+        <label for="key">Key:</label>
+        <select id="key" name="key" required>
+            <option value="C Major">C Major</option>
+            <option value="D Major">D Major</option>
+            <option value="E Major">E Major</option>
+            <option value="F Major">F Major</option>
+            <option value="G Major">G Major</option>
+            <option value="A Major">A Major</option>
+            <option value="B Major">B Major</option>
+            <option value="A Minor">A Minor</option>
+            <option value="D Minor">D Minor</option>
+            <option value="E Minor">E Minor</option>
+            <option value="F Minor">F Minor</option>
+            <option value="B Minor">B Minor</option>
+            <option value="G Minor">G Minor</option>
+            <option value="C Minor">C Minor</option>
+        </select>
         <label for="path_length">Path Length:</label>
-        <input type="number" id="path_length" name="path_length" required><br><br>
+        <input type="number" id="path_length" name="path_length" required>
         <input type="submit" value="Generate">
     </form>
     <br>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
     {% if tabs %}
         <pre>{{ tabs }}</pre>
     {% endif %}
