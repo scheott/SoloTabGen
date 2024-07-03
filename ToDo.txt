@@ -1,0 +1,6 @@
+- Correct code to get good scales based on scale input
+- max of 70 beats, then skips the line and continues
+- plays sounds out loud
+     - someone set up like a song of the day server?? Hadoop/MongoDB/Kubernetes/Docker
+- Guitar
+
